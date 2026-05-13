@@ -43,3 +43,17 @@ const updateProduct = async (req,res) =>{
     res.status(500).json({ message: "Server error", error: error.message });
   }  
 }
+
+//delete product
+const deleteProduct = async (req,res) =>{
+  try{
+    const result = await Products.findByIdAndDelete(req.params.id);
+    if(result){
+      return res.status(200).json({message:"Product deleted successfully",result});
+    }else{
+      res.json({message : "Product not deleted",result});
+    }
+  }catch(error){
+    res.status(500).json({ message: "Server error", error: error.message });
+  }  
+}
