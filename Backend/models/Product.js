@@ -1,7 +1,7 @@
 
 import mongoose from "mongoose";
 
-const Product = mongoose.Schema({
+const Product =new mongoose.Schema({
   title:{
     type: String,
     required: true
@@ -20,11 +20,10 @@ const Product = mongoose.Schema({
   image:{
     type: String,
     
-  }, stuck: {
+  }, stock: { 
     type: Number,
-    default: 0
-  }
-}{
+     default: 0 }
+},{
   timestamps: true
 });
 
